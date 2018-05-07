@@ -10,17 +10,13 @@ var infoid = [];
 var curr = 0;
 var testchannel = "436971996736258049";
 
-var listado = ["mew", "mewtwo", "rayquaza", "moltres", "articuno", "celebi", "zenaora", "necrozma",
-               "poipole", "marshadow", "zygarde", "lugia", "cosmog", "kyurem", "solgaleo", "latios", 
-               "latias", "silvally", "giratina", "lunala", "kyogre", "stakataka", "dialga", "cosmoem", 
-               "suicune", "tapu koko", "zekrom", "zapdos", "regigigas", "palkia", "reshiram", "xemeas", 
-               "entei", "nihilego", "yveltal", "heatran", "guzzlord", "kartana", "pheromosa", "raikou", 
-               "landorus", "cresselia", "thundurus", "tapu lele", "tornadus", "cobalion", "regirock", 
-               "tapu fini", "xurkitree", "tapu bulu", "regice", "registeel", "virizion", "mesprit", 
-               "azelf", "uxie", "terrakion", "metang", "metagross", "blacephalon", "ho-oh", "beldum", 
-               "groudon", "jirachi", "deoxys", "darkrai", "arceus", "victini", "genesect", "keldeo", 
-               "meloetta", "volcanion", "hoopa", "type: null", "minior", "buzzwole", "celesteela", 
-               "magearna", "naganadel"];
+var listado = ["mew", "mewtwo", "rayquaza", "moltres", "articuno", "celebi", "zenaora", "necrozma", "poipole", 
+    "marshadow", "zygarde", "lugia", "cosmog", "kyurem", "solgaleo", "latios", "latias", "silvally", "giratina", 
+    "lunala", "kyogre", "stakataka", "dialga", "cosmoem", "suicune", "tapu koko", "zekrom", "zapdos", "regigigas", 
+    "palkia", "reshiram", "xerneas", "entei", "nihilego", "yveltal", "heatran", "guzzlord", "kartana", "pheromosa", 
+    "raikou", "landorus", "cresselia", "thundurus", "tapu lele", "tornadus", "cobalion", "regirock", "tapu fini", 
+    "xurkitree", "tapu bulu", "regice", "registeel", "virizion", "mesprit", "azelf", "uxie", "terrakion",
+    "metang", "metagross"];
 
 /*function step() {
     if (spamid.length > 0) {
@@ -54,7 +50,7 @@ client.on('message', message => {
             }
         });       
     }*/
-  
+    
     if (message.content.includes('$spam') && message.content.split(' ').length > 1) { 
         var str = message.content.replace('$spam ','');
      
@@ -71,9 +67,9 @@ client.on('message', message => {
             //client.channels.get(testchannel).send('spamming into ' + spamid[curr]);
             client.channels.get(spamid[curr]).send(str);
             curr++;
-        }, 2000);
+        }, 1800);
     }
-  
+    
     if (message.content === '$spam') { 
         if (spamid.indexOf(message.channel.id) < 0) {
             spamid.push(message.channel.id);
@@ -88,7 +84,7 @@ client.on('message', message => {
             //client.channels.get(testchannel).send('spamming into ' + spamid[curr]);
             client.channels.get(spamid[curr]).send('spamming here');
             curr++;
-        }, 2000);
+        }, 1800);
     }
     
     if (message.content === '$stop') {
@@ -107,7 +103,7 @@ client.on('message', message => {
                 //client.channels.get(testchannel).send('spamming into ' + spamid[curr]);
                 client.channels.get(spamid[curr]).send('spamming here');
                 curr++;
-            }, 2000);
+            }, 1800);
         }
     }
     
@@ -115,7 +111,7 @@ client.on('message', message => {
         message.channel.send('spam channels: ' + spamid.join(' '));
     }
 
-    if (message.content === '$catch') {
+    if (message.content === '$info') {
         var index = infoid.indexOf(message.channel.id);
         if (index > -1) {
             infoid.splice(index, 1);
@@ -178,10 +174,10 @@ client.on('message', message => {
                 //message.channel.send(images[name]);
                 realname = images[name];
                 if (realname.length >0) {
-                    if (listado.indexOf(realname) > -1)
-                        message.channel.send('p!catch ' + realname);
-                    else
-                        message.channel.send('A wild ' + realname + ' has appeared');
+                    //if (listado.indexOf(realname) > -1)
+                        message.channel.send('-catch ' + realname);
+                    //else
+                    //    message.channel.send('A wild ' + realname + ' has appeared');
                 }
             }
         }
